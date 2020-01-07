@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
@@ -22,7 +21,6 @@ import com.generic.setup.GlobalVariables;
 import com.generic.setup.LoggingMsg;
 import com.generic.setup.SelTestCase;
 import com.generic.util.RandomUtilities;
-import com.generic.util.ReportUtil;
 import com.generic.util.SelectorUtil;
 
 public class CheckOut extends SelTestCase {
@@ -658,7 +656,7 @@ public class CheckOut extends SelTestCase {
 				return SelectorUtil.getNthElement(CheckOutSelectors.shippingAndTaxCost.get(), subTotalIndex).getText();
 			} else {
 				getCurrentFunctionName(false);
-				return SelectorUtil.getelement(CheckOutSelectors.subTotalValue.get()).getText();
+				return SelectorUtil.getElement(CheckOutSelectors.subTotalValue.get()).getText();
 			}
 
 		} catch (NoSuchElementException e) {
@@ -803,7 +801,7 @@ public class CheckOut extends SelTestCase {
 					str = CheckOutSelectors.confirmationTotal.get();
 				else if (isGHRY() && isMobile())
 					str = CheckOutSelectors.GHConfirmationTotal;
-				WebElement price = SelectorUtil.getelement(str);
+				WebElement price = SelectorUtil.getElement(str);
 				getCurrentFunctionName(false);
 				return price.getText().replace("$", "").replace(",", "").trim();
 			} catch (NoSuchElementException e) {
@@ -816,7 +814,7 @@ public class CheckOut extends SelTestCase {
 		public static String getConfirmationPageTaxValue() throws Exception {
 			try {
 				getCurrentFunctionName(true);
-				WebElement price = SelectorUtil.getelement(CheckOutSelectors.confirmationPageTax.get());
+				WebElement price = SelectorUtil.getElement(CheckOutSelectors.confirmationPageTax.get());
 				getCurrentFunctionName(false);
 				return price.getText().replace("$", "").replace(",", "").trim();
 			} catch (NoSuchElementException e) {
@@ -829,7 +827,7 @@ public class CheckOut extends SelTestCase {
 		public static String getConfirmationPageShippingValue() throws Exception {
 			try {
 				getCurrentFunctionName(true);
-				WebElement price = SelectorUtil.getelement(CheckOutSelectors.confirmationShipping.get());
+				WebElement price = SelectorUtil.getElement(CheckOutSelectors.confirmationShipping.get());
 				getCurrentFunctionName(false);
 				return price.getText().replace("$", "").replace(",", "").trim();
 			} catch (NoSuchElementException e) {
@@ -842,7 +840,7 @@ public class CheckOut extends SelTestCase {
 		public static String getConfirmationPageSubtotalValue() throws Exception {
 			try {
 				getCurrentFunctionName(true);
-				WebElement price = SelectorUtil.getelement(CheckOutSelectors.confirmationPageSubtotal.get());
+				WebElement price = SelectorUtil.getElement(CheckOutSelectors.confirmationPageSubtotal.get());
 				getCurrentFunctionName(false);
 				return price.getText().replace("$", "").replace(",", "").trim();
 			} catch (NoSuchElementException e) {
@@ -856,7 +854,7 @@ public class CheckOut extends SelTestCase {
 
 			try {
 				getCurrentFunctionName(true);
-				WebElement price = SelectorUtil.getelement(CheckOutSelectors.confirmationPageAccountType.get());
+				WebElement price = SelectorUtil.getElement(CheckOutSelectors.confirmationPageAccountType.get());
 				boolean result = false;
 				if (price.getText().trim().equals("PayPal Account"))
 					result = true;
