@@ -25,8 +25,7 @@ public class GiftRegistry extends SelTestCase {
 	public static String registryName;
 	public static String emptyMessage;
 	public static String password;
-
-
+	
 	// Constants.
 	public static String singlePDPSearchTerm = "Rugs";
 	public static final String createGiftRegistryString = "Create New Registry";
@@ -287,6 +286,10 @@ public class GiftRegistry extends SelTestCase {
 			// Validate the empty registry.
 			String emptyMsg = SelectorUtil.getElement(GiftRegistrySelectors.emptyRegistryMsg.get()).getText().trim()
 					.toLowerCase();
+			if(isGH()) {
+				sassert().assertTrue(emptyMsg.contains(emptyMessage.toLowerCase().trim()),
+						"Error empty messages is not as expected " + emptyMessage.toLowerCase().trim() + " : " + emptyMsg);
+			}else
 			sassert().assertTrue(emptyMsg.equals(emptyMessage.toLowerCase().trim()),
 					"Error empty messages is not as expected " + emptyMessage.toLowerCase().trim() + " : " + emptyMsg);
 			

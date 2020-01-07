@@ -66,6 +66,8 @@ public class GRBase extends SelTestCase {
 			String userMail = RandomUtilities.getRandomEmail();
 			String userPassword = "P@ssword11";
 			GiftRegistry.accessValidAccount(userMail, userPassword);
+			
+			emptyMessage="now for the fun part —";
 
 			GiftRegistry.setRegistryInformtion(registryType, eventDateMonth, eventDateDay, eventDateYear, emptyMessage,
 					singlePDPSearchTerm);
